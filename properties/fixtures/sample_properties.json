@@ -1,0 +1,30 @@
+[
+  {
+    "model": "properties.property",
+    "pk": 1,
+    "fields": {
+      "name": "Elmwood Arts Center",
+      "address": "245 Elmwood Avenue",
+      "city": "Buffalo",
+      "state": "NY",
+      "zip": "14201",
+      "category": "Cultural Centers > Museum",
+      "lat": 42.9024,
+      "lng": -78.8763
+    }
+  },
+  {
+    "model": "properties.property",
+    "pk": 2,
+    "fields": {
+      "name": "Hertel Market Hall",
+      "address": "765 Hertel Avenue",
+      "city": "Buffalo",
+      "state": "NY",
+      "zip": "14216",
+      "category": "Cultural Centers > Theater",
+      "lat": 42.9491,
+      "lng": -78.8589
+    }
+  }
+]
