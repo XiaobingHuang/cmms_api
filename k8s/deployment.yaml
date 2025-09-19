@@ -32,4 +32,11 @@ spec:
             - name: DJANGO_DB_ENGINE
               value: django.db.backends.sqlite3
             - name: DJANGO_DB_NAME
-              value: /app/db.sqlite3
+              value: /data/db.sqlite3
+          volumeMounts:
+            - name: sqlite-data
+              mountPath: /data
+      volumes:
+        - name: sqlite-data
+          persistentVolumeClaim:
+            claimName: cmms-api-pvc
