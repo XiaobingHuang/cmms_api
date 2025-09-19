@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cmms-api-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cmms-api
@@ -14,9 +14,22 @@ spec:
     spec:
       containers:
         - name: cmms-api
-          image: cmms-api:latest
+          image: your-registry/cmms-api:latest
           ports:
             - containerPort: 8000
           env:
             - name: DJANGO_SETTINGS_MODULE
               value: cmms_api.settings
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cmms-api-secrets
+                  key: django-secret-key
+            - name: DJANGO_DEBUG
+              value: "0"
+            - name: DJANGO_ALLOWED_HOSTS
+              value: "*"
+            - name: DJANGO_DB_ENGINE
+              value: django.db.backends.sqlite3
+            - name: DJANGO_DB_NAME
+              value: /app/db.sqlite3
